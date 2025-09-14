@@ -1,5 +1,5 @@
 ---
-title: Introdução Engenharia Informática
+title: Tópicos de Informática para Automação
 author: Mário Antunes
 institute: Universidade de Aveiro
 date: September 15, 2025
@@ -67,22 +67,22 @@ Covering the following topics:
 
 # Class Schedule
 
-| Date TP1/2 | Date TP3   | Date TP4   | Topic | Description                        |
-|-----------:|-----------:|-----------:|:-----:|:-----------------------------------|
-| 15-09-2025 | 17-09-2025 | 18-09-2025 |    C0 | Setup                              |
-| 22-09-2025 | 24-09-2025 | 25-09-2025 |    C1 | Linux terminal                     |
-| 29-09-2025 | 01-10-2025 | 02-10-2025 |    C1 | Windows terminal                   |
-| 06-10-2025 | 08-10-2025 | 09-10-2025 |    C2 | Virtualization                     |
-| 13-10-2025 | 15-10-2025 | 16-10-2025 |    C2 | Containers                         |
-| 20-10-2025 | 22-10-2025 | 23-10-2025 |    C2 | Application containers             |
-| 27-10-2025 | 29-10-2025 | 30-10-2025 |    C3 | Git & Github                       |
-| 03-11-2025 | 05-11-2025 | 06-11-2025 |    C4 | Network configuration              |
-| 10-11-2025 | 12-11-2025 | 13-11-2025 |    C4 | Network programing                 |
-| 17-11-2025 | 19-11-2025 | 20-11-2025 |    C5 | WebPage & deployment               |
-| 24-11-2025 | 26-11-2025 | 27-11-2025 |    C5 | Web programming                    |
-| 15-12-2025 | 03-12-2025 | 04-12-2025 |    C6 | Data visualization                 |
-| 22-12-2025 | 10-12-2025 | 11-12-2025 |    C7 | Latex & Markdown                   |
-| ---------- | 17-12-2025 | 18-12-2025 |    C8 | GDPR, AI Act, Intelectual property |
+| Date TP2   | Date TP1   | Topic | Description                        |
+|-----------:|-----------:|:-----:|:-----------------------------------|
+| 15-09-2025 | 16-09-2025 |    C0 | Setup                              |
+| 22-09-2025 | 23-09-2025 |    C1 | Linux terminal                     |
+| 29-09-2025 | 30-09-2025 |    C1 | Windows terminal                   |
+| 06-10-2025 | 07-10-2025 |    C2 | Virtualization                     |
+| 13-10-2025 | 14-10-2025 |    C2 | Containers                         |
+| 20-10-2025 | 21-10-2025 |    C2 | Application containers             |
+| 27-10-2025 | 28-10-2025 |    C3 | Git & Github                       |
+| 03-11-2025 | 04-11-2025 |    C4 | Network configuration              |
+| 10-11-2025 | 11-11-2025 |    C4 | Network programing                 |
+| 17-11-2025 | 18-11-2025 |    C5 | WebPage & deployment               |
+| 24-11-2025 | 25-11-2025 |    C5 | Web programming                    |
+| 15-12-2025 | 02-12-2025 |    C6 | Data visualization                 |
+| 22-12-2025 | 09-12-2025 |    C7 | Latex & Markdown                   |
+| ---------- | 16-12-2025 |    C8 | GDPR, AI Act, Intelectual property |
 
 # Bibliography
 
