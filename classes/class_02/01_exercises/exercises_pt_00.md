@@ -1,6 +1,6 @@
 ---
 title: Terminal do Windows
-subtitle: Introdução Engenharia Informática
+subtitle: Tópicos de Informática para Automação
 author: Mário Antunes
 institute: Universidade de Aveiro
 date: September 29, 2025
@@ -51,7 +51,7 @@ Visite diretórios importantes do sistema para compreender a estrutura do Window
       * **PowerShell:** `$ ls`
 3.  Obtenha informação sobre a sua versão do Windows.
       * **CMD:** `$ systeminfo | findstr /B /C:"OS Name" /C:"OS Version"`
-      * **PowerShell:** `$ Get-ComputerInfo | Select-Object WindowsProductName, WindowsVersion`
+      * **PowerShell:** `$ Get-ComputerInfo | Select-Object OSName, OSVersion`
 
 -----
 
@@ -59,10 +59,10 @@ Visite diretórios importantes do sistema para compreender a estrutura do Window
 
 Crie, copie, mova e apague ficheiros e diretórios.
 
-1.  A partir do seu diretório pessoal, crie um novo diretório chamado `IEI`.
-      * **CMD & PowerShell:** `$ mkdir IEI`
-2.  Navegue para dentro do seu novo diretório `IEI`.
-      * **CMD & PowerShell:** `$ cd IEI`
+1.  A partir do seu diretório pessoal, crie um novo diretório chamado `TIA`.
+      * **CMD & PowerShell:** `$ mkdir TIA`
+2.  Navegue para dentro do seu novo diretório `TIA`.
+      * **CMD & PowerShell:** `$ cd TIA`
 3.  Crie um ficheiro vazio chamado `notes.txt`.
       * **CMD:** `$ echo. > notes.txt`
       * **PowerShell:** `$ New-Item notes.txt`
@@ -85,7 +85,7 @@ Crie, copie, mova e apague ficheiros e diretórios.
 
 As permissões no Windows podem ser complexas. Este exercício foca-se num conceito mais simples: o **atributo de só de leitura**.
 
-1.  Dentro de `~/IEI`, crie um ficheiro chamado `report.docx`.
+1.  Dentro de `~/TIA`, crie um ficheiro chamado `report.docx`.
       * **CMD:** `$ echo. > report.docx`
       * **PowerShell:** `$ New-Item report.docx`
 2.  Defina o ficheiro como só de leitura.
@@ -107,7 +107,7 @@ Procure por ficheiros por nome e por texto dentro deles.
 1.  Crie um subdiretório e um novo ficheiro dentro dele.
       * **CMD:** `$ mkdir reports` e depois `$ echo Relatorio confidencial. > reports\report-2025.txt`
       * **PowerShell:** `$ mkdir reports` e depois `$ Set-Content reports\report-2025.txt "Relatorio confidencial."`
-2.  Use o comando apropriado para procurar qualquer ficheiro que termine em `.txt` dentro do seu diretório `IEI` e dos seus subdiretórios.
+2.  Use o comando apropriado para procurar qualquer ficheiro que termine em `.txt` dentro do seu diretório `TIA` e dos seus subdiretórios.
       * **CMD:** `$ dir /s /b *.txt`
       * **PowerShell:** `$ Get-ChildItem -Recurse -Filter "*.txt"`
 3.  Procure pela palavra "Confidencial" dentro do diretório `reports`.
@@ -150,9 +150,9 @@ Instale e remova um programa usando o **Windows Package Manager**. Estes comando
 
 Explore o poder do *pipe* (`|`) e do redirecionamento (`>>`).
 
-1.  Use o *pipe* para encontrar o seu próprio processo de terminal ("cmd.exe" ou "pwsh.exe").
+1.  Use o *pipe* para encontrar o seu próprio processo de terminal ("cmd.exe" ou "powershell.exe").
       * **CMD:** `$ tasklist | findstr "cmd.exe"`
-      * **PowerShell:** `$ Get-Process | Where-Object { $_.Name -eq "pwsh" }`
+      * **PowerShell:** `$ Get-Process | Where-Object { $_.Name -eq "powershell" }`
 2.  Crie um ficheiro de *log* com uma entrada usando `>`.
       * **CMD:** `$ echo %date% %time%: A iniciar trabalho. > activity.log`
       * **PowerShell:** `$ Set-Content activity.log "$(Get-Date): A iniciar trabalho."`
@@ -171,9 +171,9 @@ Crie um atalho útil (um *alias*).
 
   * **CMD (Alias Temporário):**
 
-    1.  Crie um *alias* `l` para o comando `dir /a` usando o `doskey`.
-        `$ doskey l=dir /a`
-    2.  Teste o seu *alias*: `$ l`
+    1.  Crie um *alias* `ll` para o comando `dir /a` usando o `doskey`.
+        `$ doskey ll=dir /a`
+    2.  Teste o seu *alias*: `$ ll`
         *(Nota: Este alias desaparece quando fecha a janela do CMD.)*
 
   * **PowerShell (Alias Permanente):**
@@ -181,8 +181,8 @@ Crie um atalho útil (um *alias*).
     1.  Abra o seu *script* de perfil do PowerShell no Notepad.
         `$ notepad $PROFILE`
     2.  Adicione a seguinte linha ao ficheiro, depois guarde e feche-o.
-        `Set-Alias -Name l -Value Get-ChildItem -Force`
-    3.  Feche e reabra o PowerShell, e depois teste o seu novo *alias*: `$ l`
+        `Set-Alias -Name ll -Value Get-ChildItem -Force`
+    3.  Feche e reabra o PowerShell, e depois teste o seu novo *alias*: `$ ll`
 
 -----
 
@@ -193,14 +193,14 @@ Descubra como a *shell* encontra os comandos.
 1.  Veja a variável `$PATH` atual.
       * **CMD:** `$ echo %PATH%`
       * **PowerShell:** `$ echo $env:Path`
-2.  Crie um ficheiro *Batch* simples no seu diretório `~/IEI` chamado `hello.bat` contendo uma linha: `@echo Ola do meu script personalizado!`
-3.  Tente executar o *script* pelo nome. Irá falhar porque `IEI` não está na `$PATH`.
+2.  Crie um ficheiro *Batch* simples no seu diretório `~/TIA` chamado `hello.bat` contendo uma linha: `@echo Ola do meu script personalizado!`
+3.  Tente executar o *script* pelo nome. Irá falhar porque `TIA` não está na `$PATH`.
       * **CMD & PowerShell:** `$ hello`
 4.  Execute-o usando o seu caminho relativo. Isto funciona.
       * **CMD & PowerShell:** `$ .\hello.bat`
-5.  Adicione temporariamente o seu diretório `~/IEI` à `$PATH`. Agora tente executá-lo pelo nome novamente.
-      * **CMD:** `$ set PATH=%USERPROFILE%\IEI;%PATH%` e depois `$ hello.bat`
-      * **PowerShell:** `$ $env:Path = "$HOME\IEI;" + $env:Path` e depois `$ hello.bat`
+5.  Adicione temporariamente o seu diretório `~/TIA` à `$PATH`. Agora tente executá-lo pelo nome novamente.
+      * **CMD:** `$ set PATH=%USERPROFILE%\TIA;%PATH%` e depois `$ hello.bat`
+      * **PowerShell:** `$ $env:Path = "$HOME\TIA;" + $env:Path` e depois `$ hello.bat`
 
 -----
 
@@ -210,11 +210,11 @@ Crie um *script* que automatiza a criação de uma estrutura de projeto.
 
   * **CMD (Script Batch):**
 
-    1.  Crie um ficheiro chamado `setup_project.bat` em `~/IEI`.
+    1.  Crie um ficheiro chamado `setup_project.bat` em `~/TIA`.
     2.  Adicione o seguinte código e guarde-o.
         ```batch
         @echo off
-        set PROJECT_DIR=%USERPROFILE%\IEI\my_project
+        set PROJECT_DIR=%USERPROFILE%\TIA\my_project
         if exist %PROJECT_DIR% (
             echo Erro: O diretorio ja existe.
             exit /b
@@ -229,10 +229,10 @@ Crie um *script* que automatiza a criação de uma estrutura de projeto.
 
   * **Script PowerShell:**
 
-    1.  Crie um ficheiro chamado `setup_project.ps1` em `~/IEI`.
+    1.  Crie um ficheiro chamado `setup_project.ps1` em `~/TIA`.
     2.  Adicione o seguinte código e guarde-o.
         ```powershell
-        $ProjectDir = "$HOME\IEI\my_project"
+        $ProjectDir = "$HOME\TIA\my_project"
         if (Test-Path $ProjectDir) {
             Write-Error "O diretorio ja existe."
             return
@@ -251,12 +251,28 @@ Crie um *script* que automatiza a criação de uma estrutura de projeto.
 
 Crie um *script* simples e agende a sua execução automática.
 
-1.  **Crie o Script:** Em `~/IEI`, crie o ficheiro `log_time.bat` com o seguinte conteúdo:
-    `@echo %date% %time% >> %USERPROFILE%\IEI\cron_log.txt`
+1.  **Crie o Script:** Em `~/TIA`, crie o ficheiro `log_time.bat` com o seguinte conteúdo:
+    ```cmd    
+    @echo off
+    @echo %date% %time:~0,5% >> %USERPROFILE%\TIA\cron_log.txt
+    ```
 2.  **Agende a Tarefa (CMD):**
-      * Este comando agenda a execução do *script* para daqui a um minuto.
-        `$ schtasks /create /sc once /tn "My Logger" /tr "%USERPROFILE%\IEI\log_time.bat" /st (Get-Date).AddMinutes(1).ToString("HH:mm")`
+      * Este comando agenda a execução do *script* para daqui a um minuto (periodico a um minuto):
+      ```cmd
+      $ schtasks /create /sc minute /tn "My Logger"^ 
+       /tr "%USERPROFILE%\TIA\log_time.bat" /st %time:~0,5%
+      ```
+3.  **Agende a Tarefa (PowerShell):**
+      * Este comando agenda a execução do *script* para daqui a um minuto (periodico a um minuto):
+      ```powershell
+      $action = New-ScheduledTaskAction -Execute "$env:USERPROFILE\TIA\log_time.bat"
+      $trigger = New-ScheduledTaskTrigger -At $(Get-Date -Format HH:mm) -Once `
+      -RepetitionInterval (New-TimeSpan -Minutes 1)
+      Register-ScheduledTask -Action $action -Trigger $trigger -TaskName "My Logger"
+      ```
 3.  **Verifique:** Após um minuto, verifique o ficheiro de *output*.
-      * **CMD:** `$ type %USERPROFILE%\IEI\cron_log.txt`
+      * **CMD:** `$ type %USERPROFILE%\TIA\cron_log.txt`{.cmd}
+      * **PowerShell:** `$ Get-Content $env:USERPROFILE\TIA\cron_log.txt`{.powershell}
 4.  **Limpeza:** É importante remover a tarefa para que não permaneça no sistema.
-      * **CMD:** `$ schtasks /delete /tn "My Logger" /f`
+      * **CMD:** `$ schtasks /delete /tn "My Logger" /f`{.cmd}
+      * **PowerShell:** `$ Unregister-ScheduledTask "My Logger"`{.powershell}

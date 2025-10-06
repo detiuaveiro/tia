@@ -1,6 +1,6 @@
 ---
 title: Setup
-Subtitle: Introdução Engenharia Informática
+Subtitle: Tópicos de Informática para Automação
 author: Mário Antunes
 institute: Universidade de Aveiro
 date: September 15, 2025

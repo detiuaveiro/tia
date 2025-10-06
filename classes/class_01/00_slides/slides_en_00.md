@@ -1,6 +1,6 @@
 ---
 title: Linux terminal
-subtitle: Introdução Engenharia Informática
+subtitle: Tópicos de Informática para Automação
 author: Mário Antunes
 institute: Universidade de Aveiro
 date: September 22, 2025

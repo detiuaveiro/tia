@@ -1,6 +1,6 @@
 ---
 title: Windows terminal
-subtitle: Introdução Engenharia Informática
+subtitle: Tópicos de Informática para Automação
 author: Mário Antunes
 institute: Universidade de Aveiro
 date: September 29, 2025
