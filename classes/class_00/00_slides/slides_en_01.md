@@ -4,6 +4,8 @@ Subtitle: Tópicos de Informática para Automação
 author: Mário Antunes
 institute: Universidade de Aveiro
 date: September 15, 2025
+colorlinks: true
+highlight-style: tango
 mainfont: NotoSans
 mainfontfallback:
   - "NotoColorEmoji:mode=harf"
@@ -13,6 +15,7 @@ header-includes:
  - \usepackage{etoolbox}
  - \AtBeginEnvironment{longtable}{\scriptsize}
  - \AtBeginEnvironment{cslreferences}{\scriptsize}
+ - \setmonofont[Contextuals={Alternate}]{FiraCodeNerdFontMono-Retina}
 ---
 
 # Setting Up Your Digital Workspace

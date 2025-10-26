@@ -4,6 +4,8 @@ subtitle: Tópicos de Informática para Automação
 author: Mário Antunes
 institute: Universidade de Aveiro
 date: October 06, 2025
+colorlinks: true
+highlight-style: tango
 geometry: a4paper,margin=2cm
 mainfont: NotoSans
 mainfontfallback:
@@ -15,6 +17,7 @@ header-includes:
  - \AtBeginEnvironment{cslreferences}{\tiny}
  - \AtBeginEnvironment{Shaded}{\normalsize}
  - \AtBeginEnvironment{verbatim}{\normalsize}
+ - \setmonofont[Contextuals={Alternate}]{FiraCodeNerdFontMono-Retina}
 ---
 
 # Exercícios
@@ -51,7 +54,7 @@ Primeiro, instale a ferramenta correta para o seu sistema operativo.
         ```
       * Adicione o seu utilizador ao grupo `kvm` para executar VMs sem `sudo`. Terá de fazer logout e login novamente para que esta alteração tenha efeito.
         ```bash
-        $ sudo adduser $USER kvm
+        $ sudo usermod -a -G kvm $USER
         ```
 2.  **Como Usar o QEMU:**
       * O QEMU é controlado por linha de comandos. Irá criar discos com `qemu-img` e iniciar VMs com `qemu-system-x86_64`.

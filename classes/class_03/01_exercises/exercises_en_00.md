@@ -4,6 +4,8 @@ subtitle: Tópicos de Informática para Automação
 author: Mário Antunes
 institute: Universidade de Aveiro
 date: October 06, 2025
+colorlinks: true
+highlight-style: tango
 geometry: a4paper,margin=2cm
 mainfont: NotoSans
 mainfontfallback:
@@ -15,6 +17,7 @@ header-includes:
  - \AtBeginEnvironment{cslreferences}{\tiny}
  - \AtBeginEnvironment{Shaded}{\normalsize}
  - \AtBeginEnvironment{verbatim}{\normalsize}
+ - \setmonofont[Contextuals={Alternate}]{FiraCodeNerdFontMono-Retina}
 ---
 
 # Exercises
@@ -172,11 +175,11 @@ Let's install a modern, minimal Linux distribution that is the foundation for ma
       * Alpine uses `busybox httpd`. Install the package for extra features.
         ```bash
         # Inside Alpine VM
-        $ apk add busybox-extras
+        $ doas apk add busybox-extras
         ```
       * Create a directory for your web page.
         ```bash
-        $ mkdir -p /var/www/localhost/htdocs
+        $ doas mkdir -p /var/www/localhost/htdocs
         ```
       * Create a simple HTML page.
         ```bash
@@ -184,7 +187,7 @@ Let's install a modern, minimal Linux distribution that is the foundation for ma
         ```
       * Start the web server.
         ```bash
-        $ httpd -f -p 80 -h /var/www/localhost/htdocs
+        $ doas httpd -f -p 80 -h /var/www/localhost/htdocs
         ```
       * From your **host machine's web browser**, navigate to the Alpine VM's IP address. You should see your message\!
 
