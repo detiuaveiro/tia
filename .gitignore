@@ -1,7 +1,7 @@
 # Jellyfin
-config
-movies
-tvshows
+config/
+movies/
+tvshows/
 
 # Flatpak & Appimage
 .flatpak-builder/
