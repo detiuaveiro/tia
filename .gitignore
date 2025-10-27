@@ -1,3 +1,14 @@
+# Jellyfin
+config
+movies
+tvshows
+
+# Flatpak & Appimage
+.flatpak-builder/
+build
+*.AppDir
+
+# Files
 luatex.*
 *.iso
 *.qcow*

@@ -8,8 +8,7 @@ colorlinks: true
 highlight-style: tango
 geometry: a4paper,margin=2cm
 mainfont: NotoSans
-mainfontfallback:
-  - "NotoColorEmoji:mode=harf"
+mainfontfallback: "NotoColorEmoji:mode=harf"
 header-includes:
  - \usepackage{longtable,booktabs}
  - \usepackage{etoolbox}
@@ -17,6 +16,7 @@ header-includes:
  - \AtBeginEnvironment{cslreferences}{\tiny}
  - \AtBeginEnvironment{Shaded}{\normalsize}
  - \AtBeginEnvironment{verbatim}{\normalsize}
+ - \setmonofont[Contextuals={Alternate}]{FiraCodeNerdFontMono-Retina}
 ---
 
 # Exercises
