@@ -71,7 +71,10 @@ logoutBtn.addEventListener('click', () => handleLoginState(false));
 
 function loadGallery() {
     const galleryGrid = document.getElementById('galleryGrid');
-    const images = ['https://picsum.photos/id/101/300/200','https://picsum.photos/id/102/300/200','https://picsum.photos/id/103/300/200','https://picsum.photos/id/104/300/200'];
+    const images = ['https://picsum.photos/id/101/300/200',
+        'https://picsum.photos/id/102/300/200',
+        'https://picsum.photos/id/103/300/200',
+        'https://picsum.photos/id/104/300/200'];
     galleryGrid.innerHTML = '';
     images.forEach(url => {
         const img = document.createElement('img');
