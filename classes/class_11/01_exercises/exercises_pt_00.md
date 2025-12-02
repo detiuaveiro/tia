@@ -241,7 +241,7 @@ Iremos criar um site simples onde um utilizador pode carregar o `titanic.csv` e 
 
 ### 1. Estrutura
 
-Crie a pasta `web_app` dentro de `titanic_lab`. Dentro dela, crie `backend` e `frontend`.
+Crie a pasta `web_app` dentro de `ex11`. Dentro dela, crie `backend` e `frontend`.
 
 ### 2. Backend (FastAPI + Polars)
 
@@ -305,7 +305,7 @@ async def analyze_titanic(file: UploadFile = File(...)):
 Crie `web_app/backend/Dockerfile`:
 
 ```dockerfile
-FROM python:3.9-slim
+FROM python:3.12-trixie
 RUN pip install fastapi uvicorn python-multipart polars matplotlib
 COPY main.py .
 CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
@@ -366,19 +366,19 @@ http {
 
 ### 5. Executar a Aplicação
 
-Crie `docker-compose-web.yml` na pasta raiz:
+Crie `docker-compose-web.yml` na pasta raiz (`web_app`):
 
 ```yaml
 services:
   backend:
-    build: ./web_app/backend
+    build: ./backend
   frontend:
     image: nginx:alpine
     ports:
       - "8080:80"
     volumes:
-      - ./web_app/frontend:/usr/share/nginx/html
-      - ./web_app/nginx.conf:/etc/nginx/nginx.conf
+      - ./frontend:/usr/share/nginx/html
+      - ./nginx.conf:/etc/nginx/nginx.conf
     depends_on:
       - backend
 ```
