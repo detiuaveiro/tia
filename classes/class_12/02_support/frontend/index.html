@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Markdown to PDF Converter</title>
+    <style>
+        body { font-family: sans-serif; display:
+        flex; justify-content: center; align-items: center;
+        height: 100vh; background: #f0f0f0; }
+        .card { background: white; padding: 2rem;
+        border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        text-align: center; }
+        button { background: #007bff; color: white; border: none;
+        padding: 10px 20px; border-radius: 5px; cursor: pointer;
+        margin-top: 10px;}
+        button:hover { background: #0056b3; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>MD to PDF Converter</h1>
+        <p>Select a Markdown file to convert.</p>
+        <input type="file" id="fileInput" accept=".md">
+        <br><br>
+        <button onclick="uploadAndConvert()">Convert & Download</button>
+        <p id="status"></p>
+    </div>
+
+    <script>
+        async function uploadAndConvert() {
+            const fileInput = document.getElementById('fileInput');
+            const status = document.getElementById('status');
+
+            if(fileInput.files.length === 0) {
+                alert("Please select a file!");
+                return;
+            }
+
+            const formData = new FormData();
+            formData.append("file", fileInput.files[0]);
+            status.innerText = "Converting... Please wait.";
+
+            try {
+                // Send file to Backend (FastAPI)
+                const response = await fetch('http://localhost:8000/convert', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                if (!response.ok) throw new Error("Conversion failed");
+
+                // Create a blob from the response (the PDF)
+                const blob = await response.blob();
+                const url = window.URL.createObjectURL(blob);
+
+                // Force download
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = "converted_document.pdf";
+                document.body.appendChild(a);
+                a.click();
+                a.remove();
+                status.innerText = "Done!";
+            } catch (error) {
+                console.error(error);
+                status.innerText = "Error converting file.";
+            }
+        }
+    </script>
+</body>
+</html>
