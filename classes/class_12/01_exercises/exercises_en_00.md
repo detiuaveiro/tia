@@ -32,10 +32,11 @@ First, we need to install the "Compiler" tools.
 1.  Open your **Terminal**.
 2.  Copy and paste the following command (you will need your password):
 
-
 ```bash
 sudo apt update
-sudo apt install wget texlive-latex-recommended pandoc -y
+sudo apt install wget texlive-luatex texlive-latex-recommended \
+texlive-latex-extra texlive-fonts-recommended texlive-fonts-extra \
+fonts-lmodern fonts-noto fonts-noto-cjk fonts-noto-color-emoji pandoc -y
 ```
 
 3.  Create a folder named `ex12` to place the exercises.
@@ -400,10 +401,11 @@ services:
 FROM python:3.12-trixie
 
 # Install system dependencies (Pandoc and LaTeX)
-# Note: We install latex-recommended to keep the image size manageable
 RUN apt update && apt install -y \
-    pandoc \
-    texlive-latex-recommended \
+    texlive-luatex texlive-latex-recommended \
+    texlive-latex-extra texlive-fonts-recommended \
+    texlive-fonts-extra fonts-lmodern fonts-noto \
+    fonts-noto-cjk fonts-noto-color-emoji pandoc \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
